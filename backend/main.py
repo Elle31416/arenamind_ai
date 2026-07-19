@@ -6,6 +6,7 @@ from datetime import datetime
 from typing import List, Dict, Set
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
 from backend.database import get_db_connection, init_db
@@ -411,6 +412,10 @@ async def startup_event():
 async def shutdown_event():
     app.state.telemetry_task.cancel()
     await app.state.telemetry_task
+
+# Mount static files to serve the frontend
+frontend_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "frontend")
+app.mount("/", StaticFiles(directory=frontend_path, html=True), name="frontend")
 
 if __name__ == "__main__":
     import uvicorn
