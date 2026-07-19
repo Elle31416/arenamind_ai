@@ -53,7 +53,11 @@ Before clicking deploy, scroll down and click **Advanced** to add environment va
 
 1.  Click **Add Environment Variable**:
     *   **Key**: `GEMINI_API_KEY`
+<<<<<<< HEAD
     *   **Value**: `YOUR_NEW_API_KEY_HERE` (Paste your new API key from Google AI Studio)
+=======
+    *   **Value**: `AIzaSyDSp1WRaFxkeRS0mK0smxUAiq3JOcWXAQk` (or your newly rotated API key)
+>>>>>>> 5f26eac9a0163686a5d45435aa6c5afce7c51093
 2.  Click **Add Environment Variable** (Optional: sets production environment config):
     *   **Key**: `PYTHONUNBUFFERED`
     *   **Value**: `1`
